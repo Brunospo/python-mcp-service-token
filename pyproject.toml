@@ -1,0 +1,36 @@
+[project]
+name = "customer_mcp"
+version = "0.1.0"
+description = "Add your description here"
+readme = "README.md"
+requires-python = ">=3.13"
+dependencies = [
+    "httpx2>=2.13.1",
+    "mcp>=2.3.0",
+    "pydantic>=2.14.0",
+    "python-dotenv>=1.2.4",
+]
+
+[build-system]
+requires = ["setuptools", "wheel"]
+build-backend = "setuptools.build_meta"
+
+[tool.pytest.ini_options]
+addopts = "-s --color=yes --tb=short"
+# Adiciona 'src' ao path do Python durante os testes. Isso permite que
+# os testes em `tests/` importem os módulos de `src/` sem erros.
+pythonpath = ["src"]
+testpaths = ["src/tests"]
+
+[tool.setuptools.packages.find]
+where = ["src"]
+
+[dependency-groups]
+dev = [
+    "mcp[cli]>=2.3.0",
+    "pytest>=9.1.1",
+    "pytest-anyio>=0.0.0",
+]
+
+[tool.setuptools]
+package-dir = { "" = "src" }

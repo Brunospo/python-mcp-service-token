@@ -1,0 +1,11 @@
+{
+  "$schema": "https://opencode.ai/config.json",
+  "mcp": {
+    "servers": {
+      "customers_mcp": {
+        "type": "local",
+        "command": [".venv/bin/python", "src/api_mcp/main.py"]
+      }
+    }
+  }
+}
