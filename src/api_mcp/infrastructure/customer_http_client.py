@@ -66,7 +66,7 @@ class CustomerHTTPClient:
 
         async with httpx2.AsyncClient(base_url=self._base_url) as client:
             response = await client.put(
-                f"/customers/{id}",
+                f"/customers/{customer._id}",
                 json=payload,
                 headers={"Content-Type": "application/json", **self._auth_headers},
             )
